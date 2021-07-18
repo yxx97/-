@@ -13,12 +13,13 @@
 #include<functional>
 using namespace std;
 
-
-class Solution {
+//DFS
+class Solution1 {
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
         graph_ = vector<vector<int>>(numCourses);
 
+        //记录出度
         for(const auto& p:prerequisites){
             graph_[p[1]].push_back(p[0]);
 
@@ -49,12 +50,15 @@ private:
         return false;
     }
 };
+
+//广度优先搜索bfs
 class Solution2 {
 public:
     bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
 
         vector<int> indegree(numCourses);
         vector<vector<int>> adjacency(numCourses);
+        //记录每个点的入度个数以及出度的点
         for(const auto& p:prerequisites){
             indegree[p[0]]++;
             adjacency[p[1]].push_back(p[0]);
