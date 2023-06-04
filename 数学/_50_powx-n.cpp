@@ -12,7 +12,7 @@ public:
     }
 };
 
-// 快速幂 test
+// 快速幂 
 class Solution2 {
 public:
     double myPow(double x, int n) {
